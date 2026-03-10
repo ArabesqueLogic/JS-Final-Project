@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wonders of The World</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/04e3aa4f17.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__title">WORLD WONDERS LIBRARY</div>
+      <ul class="nav__link--list">
+        <li class="nav__link">
+          <a href="#" class="nav__link--anchor"> Home </a>
+        </li>
+
+        <li class="nav__link">
+          <a href="#" class="nav__link--anchor"> Find your wonder </a>
+        </li>
+
+        <li class="nav__link btn--link">
+          <a href="#" class="nav__link--anchor nav__link--btn"> Contact </a>
+        </li>
+      </ul>
+    </nav>
+    <header>
+      <div class="container">
+        <div class="row search__row">
+          <div class="search__wrapper">
+            <div class="search__title">BROWSE YOUR WONDERS HERE</div>
+            <div class="search__box">
+              <input
+                class="search-bar"
+                type="text"
+                placeholder="SEARCH YOUR WONDER"
+              />
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+          </div>
+          <img class="nav__img" src="./assets/wonders.png" alt="" />
+        </div>
+      </div>
+    </header>
+    <main id="wonders__main">
+      <section>
+        <div class="container">
+          <div class="row filter__row">
+            <div class="wonder__header">
+              <h2 class="section__title wonders__header--title">
+                All <span class="brown">Wonders</span>
+              </h2>
+              <select id="filter" onchange="filterWonders(event)">
+                <option class="filter__item" value="" disabled selected>
+                  Sort
+                </option>
+                <option class="filter__item" value="A_TO_Z">A to Z</option>
+                <option class="filter__item" value="Z_TO_A">Z to A</option>
+                <option class="filter__item" value="NEWEST_TO_OLDEST">
+                  Newest to Oldest
+                </option>
+                <option class="filter__item" value="OLDEST_TO_NEWEST">
+                  Oldest to Newest
+                </option>
+              </select>
+            </div>
+            <div class="wonders__wrapper">
+              <div class="wonder"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer id="footer">
+      <div class="container">
+        <div class="row footer__row">
+          <div class="footer__title">WORLD WONDERS LIBRARY</div>
+          <ul class="footer__links">
+            <li class="footer__link">
+              <a href="#">Home</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">Contact</a>
+            </li>
+            <li class="footer__link">
+              <a href="#">About</a>
+            </li>
+          </ul>
+          <div class="footer_copyright">&copy; 2026</div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
