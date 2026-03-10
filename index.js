@@ -2,7 +2,6 @@ async function getWonders() {
   const wonders = await fetch("https://www.world-wonders-api.org/v0/wonders");
   wondersData = await wonders.json();
   renderWonders();
-  returnWonders();
 }
 
 let wondersData = [];
@@ -56,7 +55,11 @@ function wonderBuildYear(build_year) {
 function returnWonders(event) {
   const input = event.target.value.toLowerCase();
 
-  const sorted = [...wondersData].sort((a, b) => {
+  const filtered = wondersData.filter((wonder) =>
+    wonder.name.toLowerCase().includes(input),
+  );
+
+  const sorted = [...filtered].sort((a, b) => {
     if (
       a.name.toLowerCase().startsWith(input) &&
       b.name.toLowerCase().startsWith(input)
