@@ -2,6 +2,7 @@ async function getWonders() {
   const wonders = await fetch("https://www.world-wonders-api.org/v0/wonders");
   wondersData = await wonders.json();
   renderWonders();
+  returnWonders();
 }
 
 let wondersData = [];
@@ -52,9 +53,30 @@ function wonderBuildYear(build_year) {
   }
 }
 
-function filterWonders(event) {
-  renderWonders(event.target.value);
+function returnWonders(event) {
+  const input = event.target.value.toLowerCase();
+
+  const sorted = [...wondersData].sort((a, b) => {
+    if (
+      a.name.toLowerCase().startsWith(input) &&
+      b.name.toLowerCase().startsWith(input)
+    )
+      return a.name.localeCompare(b.name);
+    else if (a.name.toLowerCase().startsWith(input)) return -1;
+    else if (b.name.toLowerCase().startsWith(input)) return 1;
+
+    return a.name.localeCompare(b.name);
+  });
+
+  document.querySelector(".wonders__wrapper").innerHTML = sorted
+    .map((wonder) => wonderHtml(wonder))
+    .join("");
 }
+
+function searchWonder(event) {
+  returnWonders(event);
+}
+
 setTimeout(() => {
   getWonders();
 }, 1);
